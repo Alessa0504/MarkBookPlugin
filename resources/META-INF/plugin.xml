@@ -1,0 +1,39 @@
+<idea-plugin>
+  <id>com.example.plugin.markbook.id</id>
+  <name>MarkBook</name>
+  <version>1.0</version>
+  <vendor email="jillian@yourcompany.com" url="http://www.jillian.com">jillian</vendor>
+
+  <description><![CDATA[
+      这是一款可以帮助程序员在阅读代码是添加笔记,并将笔记生成文档的插件。<br>
+      <em>MarkDown文档</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      第一版，包含笔记添加和文档生成的主体功能<br>
+      <em>仅支持生成Markdown形式笔记。</em>
+      <em>仅支持生成Markdown形式笔记。</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- 由于自定义了ToolWindowFactory，需要在这里添加 -->
+    <toolWindow id="noteWindow" factoryClass="com.example.plugin.window.NoteListWindowFactory"
+                anchor="right" icon="/img/notebook.svg"/>
+  </extensions>
+
+
+  <actions>
+    <action id="PopupAction_id" class="com.example.plugin.action.PopupAction" text="Add MarkBook" description="添加MarkBook笔记">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
+  </actions>
+
+</idea-plugin>
